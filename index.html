@@ -6,6 +6,7 @@
     <title>SecuPass - Password Generator</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -145,41 +146,67 @@
 
     <div class="max-w-4xl mx-auto px-6">
 
-        <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
+        <!-- <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
 
             <h2 class="text-3xl font-bold text-center">
                 Password Generator
-            </h2>
+            </h2> -->
 
-            <div class="mt-8">
+            <div id="passwordDisplay"
+            class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
+                <h2 class="text-3xl font-bold text-center">
+                    Generator Password
+                </h2>
+
+                <div class="mt-8">
 
                 <label class="font-semibold">
-                    Password Length
+                     Password Length:
+                         <span id="lengthValue">16</span>
                 </label>
 
                 <input
+                    id="lengthSlider"
                     type="range"
                     min="8"
                     max="32"
                     value="16"
                     class="w-full mt-3"
-                >
+                />
 
             </div>
 
             <div class="grid md:grid-cols-2 gap-4 mt-8">
 
-                <label><input type="checkbox" checked> Uppercase Letters</label>
+                <label>
+                    <input id="uppercase" type="checkbox" checked>
+                    Uppercase Letters
+                </label>
 
-                <label><input type="checkbox" checked> Lowercase Letters</label>
+                <label>
+                    <input id="lowercase" type="checkbox" checked>
+                    Lowercase Letters
+                </label>
 
-                <label><input type="checkbox" checked> Numbers</label>
+                <label>
+                    <input id="numbers" type="checkbox" checked>
+                    Numbers
+                </label>
 
-                <label><input type="checkbox" checked> Symbols</label>
+                <label>
+                    <input id="symbols" type="checkbox" checked>
+                    Symbols
+                </label>
 
-                <label><input type="checkbox"> Exclude Similar Characters</label>
+                <label>
+                    <input id="excludeSimilar" type="checkbox">
+                    Exclude Similar Characters
+                </label>
 
-                <label><input type="checkbox"> Avoid Ambiguous Characters</label>
+                <label>
+                    <input id="avoidAmbiguous" type="checkbox">
+                    Avoid Ambiguous Characters
+                </label>
 
             </div>
 
