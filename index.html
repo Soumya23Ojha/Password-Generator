@@ -218,21 +218,16 @@
 
                 <div class="flex justify-center gap-4 mt-6">
 
-                    <button class="bg-blue-600 text-white px-6 py-3 rounded-xl hover:scale-105 transition">
-                        Copy Password
-                    </button>
+                    <button id="copyBtn" class="bg-blue-600 text-white px-6 py-3 rounded-xl hover:scale-105 transition"> Copy Password </button>
 
-                    <button class="border border-slate-300 px-6 py-3 rounded-xl hover:bg-slate-100">
-                        Generate New
-                    </button>
-
+                    <button id="generateBtn" class="border border-slate-300 px-6 py-3 rounded-xl hover:bg-slate-100"> Generate New </button>
                 </div>
 
             </div>
 
             <!-- Strength -->
 
-            <div class="mt-10">
+            <!-- <div class="mt-10">
 
                 <div class="flex justify-between mb-2">
                     <span>Password Strength</span>
@@ -245,6 +240,19 @@
                     <div class="h-3 bg-green-500 rounded-full w-4/5"></div>
                 </div>
 
+            </div> -->
+            <div class="mt-10">
+                <div class="flex justify-between mb-2">
+                    <span>Password Strength</span>
+
+                    <span id="strengthText" class="font-semibold">
+                        Weak
+                    </span>
+                </div>
+
+                <div class="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
+                    <div id="strengthBar" class="h-full bg-red-500 w-0 transition-all duration-500"></div>
+                </div>
             </div>
 
         </div>
