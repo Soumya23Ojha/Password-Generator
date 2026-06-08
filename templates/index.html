@@ -476,7 +476,8 @@
     </div>
 
 </footer>
-    <script src="../static/script.js"></script>
+    {% comment %} <script src="../static/script.js"></script> {% endcomment %}
+    <script src="{{ url_for('static', filename='../static/script.js') }}"></script>
 
 </body>
 </html>
