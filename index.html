@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SecuPass - Password Generator</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass{
+            backdrop-filter: blur(15px);
+            background: rgba(255,255,255,.75);
+        }
+
+        .floating{
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float{
+            0%,100%{
+                transform:translateY(0px);
+            }
+            50%{
+                transform:translateY(-15px);
+            }
+        }
+
+        .glow{
+            box-shadow:0 0 25px rgba(37,99,235,.18);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-900 overflow-x-hidden">
+
+
+<!-- Nav bar -->
+<nav class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-lg border-b border-slate-200 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+        <div class="flex items-center gap-2">
+            <span class="text-3xl">🔐</span>
+            <h1 class="font-bold text-xl">
+                SecuPass
+            </h1>
+        </div>
+
+        <ul class="hidden md:flex gap-8 text-sm font-medium">
+            <li><a href="#" class="hover:text-blue-600 transition">Home</a></li>
+            <li><a href="#" class="hover:text-blue-600 transition">Features</a></li>
+            <li><a href="#" class="hover:text-blue-600 transition">Tips</a></li>
+            <li><a href="#" class="hover:text-blue-600 transition">About</a></li>
+        </ul>
+
+        <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl transition">
+            Generate
+        </button>
+
+    </div>
+</nav>
+
+
+<!-- Hero Section -->
+<section class="pt-36 pb-24 relative">
+
+    <div class="absolute top-20 left-10 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-50"></div>
+
+    <div class="absolute right-10 top-32 w-64 h-64 bg-cyan-100 rounded-full blur-3xl opacity-50"></div>
+
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Left -->
+        <div>
+
+            <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">
+                Cyber Security Tool
+            </span>
+
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mt-6">
+                Generate Strong &
+                Secure Passwords
+                Instantly
+            </h1>
+
+            <p class="text-slate-600 text-lg mt-6 leading-relaxed">
+                Protect your accounts with randomly generated passwords
+                designed to meet modern cybersecurity standards.
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-4">
+
+                <button class="bg-blue-600 text-white px-8 py-4 rounded-xl hover:scale-105 transition">
+                    Generate Password
+                </button>
+
+                <button class="border border-slate-300 px-8 py-4 rounded-xl hover:bg-slate-100 transition">
+                    Learn More
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Right -->
+
+        <div class="relative flex justify-center">
+
+            <div class="glass glow rounded-3xl p-10 border border-white shadow-xl">
+
+                <div class="text-center">
+                    <div class="text-7xl floating">🛡️</div>
+
+                    <h2 class="text-2xl font-bold mt-4">
+                        Cyber Protection
+                    </h2>
+
+                    <p class="text-slate-500 mt-2">
+                        Secure Password Generation
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="absolute -left-10 top-20 bg-white shadow-lg rounded-2xl p-4 floating">
+                🔒 Encrypted
+            </div>
+
+            <div class="absolute -right-10 bottom-20 bg-white shadow-lg rounded-2xl p-4 floating">
+                🛡️ Secure
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Password Generator -->
+<section class="py-24 bg-slate-50">
+
+    <div class="max-w-4xl mx-auto px-6">
+
+        <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
+
+            <h2 class="text-3xl font-bold text-center">
+                Password Generator
+            </h2>
+
+            <div class="mt-8">
+
+                <label class="font-semibold">
+                    Password Length
+                </label>
+
+                <input
+                    type="range"
+                    min="8"
+                    max="32"
+                    value="16"
+                    class="w-full mt-3"
+                >
+
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4 mt-8">
+
+                <label><input type="checkbox" checked> Uppercase Letters</label>
+
+                <label><input type="checkbox" checked> Lowercase Letters</label>
+
+                <label><input type="checkbox" checked> Numbers</label>
+
+                <label><input type="checkbox" checked> Symbols</label>
+
+                <label><input type="checkbox"> Exclude Similar Characters</label>
+
+                <label><input type="checkbox"> Avoid Ambiguous Characters</label>
+
+            </div>
+
+            <div class="mt-8">
+
+                <div class="bg-slate-100 rounded-xl p-5 text-center font-mono text-xl tracking-wider">
+                    kP#9Xz!7R@mL2Q$
+                </div>
+
+                <div class="flex justify-center gap-4 mt-6">
+
+                    <button class="bg-blue-600 text-white px-6 py-3 rounded-xl hover:scale-105 transition">
+                        Copy Password
+                    </button>
+
+                    <button class="border border-slate-300 px-6 py-3 rounded-xl hover:bg-slate-100">
+                        Generate New
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Strength -->
+
+            <div class="mt-10">
+
+                <div class="flex justify-between mb-2">
+                    <span>Password Strength</span>
+                    <span class="text-green-600 font-semibold">
+                        Strong
+                    </span>
+                </div>
+
+                <div class="w-full h-3 bg-slate-200 rounded-full">
+                    <div class="h-3 bg-green-500 rounded-full w-4/5"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Features -->
+<section class="py-24">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <h2 class="text-4xl font-bold text-center">
+            Why Use Our Generator?
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8 mt-14">
+
+            <div class="bg-white p-8 rounded-3xl shadow-lg hover:-translate-y-2 transition">
+
+                <div class="text-5xl">🛡️</div>
+
+                <h3 class="font-bold text-xl mt-5">
+                    Strong Encryption
+                </h3>
+
+                <p class="text-slate-600 mt-3">
+                    Generate highly secure passwords resistant
+                    to brute-force attacks.
+                </p>
+
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-lg hover:-translate-y-2 transition">
+
+                <div class="text-5xl">🎲</div>
+
+                <h3 class="font-bold text-xl mt-5">
+                    Random Generation
+                </h3>
+
+                <p class="text-slate-600 mt-3">
+                    Every password is created using secure
+                    randomization techniques.
+                </p>
+
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-lg hover:-translate-y-2 transition">
+
+                <div class="text-5xl">🔒</div>
+
+                <h3 class="font-bold text-xl mt-5">
+                    Privacy First
+                </h3>
+
+                <p class="text-slate-600 mt-3">
+                    Passwords are generated locally in your browser.
+                    Nothing is stored.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Stats -->
+<section class="py-24 bg-blue-600 text-white">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div class="grid md:grid-cols-3 gap-10 text-center">
+
+            <div>
+                <h3 class="text-5xl font-bold">81%</h3>
+                <p class="mt-3">Breaches Caused By Weak Passwords</p>
+            </div>
+
+            <div>
+                <h3 class="text-5xl font-bold">256-Bit</h3>
+                <p class="mt-3">Security Level</p>
+            </div>
+
+            <div>
+                <h3 class="text-5xl font-bold">∞</h3>
+                <p class="mt-3">Possible Combinations</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Security Tips -->
+<section class="py-24">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <h2 class="text-4xl font-bold text-center">
+            Password Security Tips
+        </h2>
+
+        <div class="grid md:grid-cols-4 gap-6 mt-14">
+
+            <div class="bg-slate-50 p-6 rounded-2xl">
+                Use Different Passwords
+            </div>
+
+            <div class="bg-slate-50 p-6 rounded-2xl">
+                Enable Two-Factor Authentication
+            </div>
+
+            <div class="bg-slate-50 p-6 rounded-2xl">
+                Avoid Personal Information
+            </div>
+
+            <div class="bg-slate-50 p-6 rounded-2xl">
+                Update Passwords Regularly
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- About Section -->
+<section class="py-24 bg-slate-50">
+
+    <div class="max-w-4xl mx-auto text-center px-6">
+
+        <h2 class="text-4xl font-bold">
+            About This Project
+        </h2>
+
+        <p class="text-slate-600 mt-6 leading-relaxed">
+            This Password Generator helps users create strong and secure
+            passwords using customizable settings and modern security practices.
+        </p>
+
+        <div class="flex justify-center gap-4 mt-8 flex-wrap">
+
+            <span class="bg-white px-5 py-2 rounded-full shadow">
+                HTML
+            </span>
+
+            <span class="bg-white px-5 py-2 rounded-full shadow">
+                Tailwind CSS
+            </span>
+
+            <span class="bg-white px-5 py-2 rounded-full shadow">
+                JavaScript
+            </span>
+
+            <span class="bg-white px-5 py-2 rounded-full shadow">
+                Python
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA Section -->
+<section class="py-24">
+
+    <div class="max-w-5xl mx-auto px-6">
+
+        <div class="bg-blue-600 text-white rounded-3xl p-16 text-center">
+
+            <h2 class="text-5xl font-bold">
+                Ready to Secure Your Digital Life?
+            </h2>
+
+            <button class="mt-8 bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:scale-105 transition">
+                Generate Password Now
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-slate-200 py-10">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid md:grid-cols-4 gap-10">
+
+            <div>
+                <h3 class="font-bold text-xl">
+                    🔐 SecurePass
+                </h3>
+                <p class="text-slate-500 mt-3">
+                    Modern password generation for a safer digital world.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-semibold mb-3">Quick Links</h4>
+                <p>Home</p>
+                <p>Features</p>
+                <p>About</p>
+            </div>
+
+            <div>
+                <h4 class="font-semibold mb-3">Contact</h4>
+                <p>soumyaojha685@gmail.com</p>
+            </div>
+
+            <div>
+                <h4 class="font-semibold mb-3">Location</h4>
+                <p>India</p>
+            </div>
+
+        </div>
+
+        <div class="border-t mt-10 pt-6 text-center text-slate-500">
+            Made with ❤️ by Soumya Ojha. All rights reserved.
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
