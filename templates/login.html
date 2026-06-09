@@ -1,37 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
 
-    <h1>Login</h1>
+<body class="bg-slate-50 min-h-screen flex items-center justify-center px-6">
 
-    <form method="POST">
+    <div class="w-full max-w-md">
 
-        <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-        >
+        <div class="text-center mb-8">
 
-        <br><br>
+            <h1 class="text-4xl font-bold text-slate-900">
+                🔐 SecurePass
+            </h1>
 
-        <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-        >
+            <p class="text-slate-500 mt-2">
+                Access your encrypted vault
+            </p>
 
-        <br><br>
+        </div>
 
-        <button type="submit">
-            Login
-        </button>
+        <div class="bg-white rounded-3xl shadow-xl border border-slate-200 p-8">
 
-    </form>
+            <h2 class="text-2xl font-bold text-center mb-6">
+                Login
+            </h2>
+
+            <form method="POST" class="space-y-5">
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    required
+                    class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                >
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                    class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                >
+
+                <button
+                    type="submit"
+                    class="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition"
+                >
+                    Login
+                </button>
+
+            </form>
+
+            <div class="text-center mt-6">
+
+                <p class="text-slate-600">
+                    Don't have an account?
+                </p>
+
+                <a
+                    href="register.html"
+                    class="text-blue-600 font-semibold hover:text-blue-800"
+                >
+                    Create Account
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </body>
 </html>
