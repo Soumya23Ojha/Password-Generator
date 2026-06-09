@@ -36,5 +36,35 @@ def register():
     return render_template("register.html")
 
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+
+    if request.method == "POST":
+
+        email = request.form["email"]
+        password = request.form["password"]
+
+        conn = sqlite3.connect("users.db")
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            SELECT * FROM users
+            WHERE email = ? AND password = ?
+            """,
+            (email, password)
+        )
+
+        user = cursor.fetchone()
+
+        conn.close()
+
+        if user:
+            return "Login Successful"
+
+        return "Invalid Email or Password"
+
+    return render_template("login.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
