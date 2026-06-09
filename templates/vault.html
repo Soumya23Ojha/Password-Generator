@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Password Vault</title>
+</head>
+<body>
+
+    <h1>Password Vault</h1>
+
+    <h3>Welcome {{ username }}</h3>
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="website"
+            placeholder="Website"
+            required
+        >
+
+        <br><br>
+
+        <input
+            type="text"
+            name="vault_username"
+            placeholder="Username"
+            required
+        >
+
+        <br><br>
+
+        <input
+            type="text"
+            name="vault_password"
+            placeholder="Password"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit">
+            Save Password
+        </button>
+
+    </form>
+
+    <hr>
+
+    <h2>Saved Passwords</h2>
+
+    {% for password in passwords %}
+
+        <p>
+            Website: {{ password[2] }}
+            |
+            Username: {{ password[3] }}
+            |
+            Password: {{ password[4] }}
+        </p>
+
+    {% endfor %}
+
+</body>
+</html>
