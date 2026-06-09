@@ -1,64 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Vault</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
 
-    <h1>Password Vault</h1>
+<body class="bg-slate-50 min-h-screen">
 
-    <h3>Welcome {{ username }}</h3>
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-    <form method="POST">
+            <div>
+                <h1 class="text-2xl font-bold text-slate-900">
+                    🔐 Password Vault
+                </h1>
 
-        <input
-            type="text"
-            name="website"
-            placeholder="Website"
-            required
-        >
+                <p class="text-slate-500 text-sm">
+                    Secure Password Management
+                </p>
+            </div>
 
-        <br><br>
 
-        <input
-            type="text"
-            name="vault_username"
-            placeholder="Username"
-            required
-        >
+        </div>
+    </header>
 
-        <br><br>
+    <!-- Welcome Section -->
+    <section class="max-w-7xl mx-auto px-6 py-8">
 
-        <input
-            type="text"
-            name="vault_password"
-            placeholder="Password"
-            required
-        >
+        <div class="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-3xl p-8 text-white">
 
-        <br><br>
+            <h2 class="text-3xl font-bold">
+                Welcome
+            </h2>
 
-        <button type="submit">
-            Save Password
-        </button>
+            <p class="mt-2 text-blue-100">
+                Store and manage your credentials securely.
+            </p>
 
-    </form>
+        </div>
 
-    <hr>
+    </section>
 
-    <h2>Saved Passwords</h2>
+    <!-- Main Content -->
+    <section class="max-w-7xl mx-auto px-6 pb-10">
 
-    {% for password in passwords %}
+        <div class="grid lg:grid-cols-3 gap-8">
 
-        <p>
-            Website: {{ password[2] }}
-            |
-            Username: {{ password[3] }}
-            |
-            Password: {{ password[4] }}
-        </p>
+            <!-- Add Credential -->
+            <div>
 
-    {% endfor %}
+                <div class="bg-white p-6 rounded-3xl shadow-md">
+
+                    <h3 class="text-xl font-bold mb-6">
+                        Add New Credential
+                    </h3>
+
+                    <form method="POST">
+
+                        <div class="space-y-4">
+
+                            <input
+                                type="text"
+                                name="website"
+                                placeholder="Website"
+                                required
+                                class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            >
+
+                            <input
+                                type="text"
+                                name="vault_username"
+                                placeholder="Username"
+                                required
+                                class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            >
+
+                            <input
+                                type="text"
+                                name="vault_password"
+                                placeholder="Password"
+                                required
+                                class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            >
+
+                            <button
+                                type="submit"
+                                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl transition">
+                                Save Password
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <!-- Saved Passwords -->
+            <div class="lg:col-span-2">
+
+                <div class="flex justify-between items-center mb-6">
+
+                    <h2 class="text-2xl font-bold">
+                        Saved Credentials
+                    </h2>
+
+                    <span class="text-slate-500">
+                         Passwords
+                    </span>
+
+                </div>
+
+
+                    <div class="space-y-4">
+
+                        <div class="bg-white p-5 rounded-2xl shadow-md border border-slate-200">
+
+                            <div class="flex justify-between items-start">
+
+                                <div>
+
+                                    <h3 class="font-bold text-lg">
+                                        🌐 
+                                    </h3>
+
+                                    <p class="text-slate-600 mt-2">
+                                        Username:
+                                        <span class="font-medium">
+                                        </span>
+                                    </p>
+
+                                    <p class="text-slate-600 mt-1">
+                                        Password:
+                                        <span class="font-mono">
+                                        </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 text-center shadow-md mt-10">
+
+                        <h3 class="text-xl font-semibold text-slate-700">
+                            No Passwords Saved Yet
+                        </h3>
+
+                        <p class="text-slate-500 mt-2">
+                            Add your first credential using the form.
+                        </p>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+    </section>
 
 </body>
 </html>
