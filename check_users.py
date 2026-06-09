@@ -3,11 +3,10 @@ import sqlite3
 conn = sqlite3.connect("users.db")
 cursor = conn.cursor()
 
-cursor.execute("SELECT * FROM users")
+cursor.execute(
+    "SELECT name FROM sqlite_master WHERE type='table';"
+)
 
-users = cursor.fetchall()
-
-for user in users:
-    print(user)
+print(cursor.fetchall())
 
 conn.close()

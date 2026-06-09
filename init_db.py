@@ -13,6 +13,16 @@ CREATE TABLE IF NOT EXISTS users(
 )
 """)
 
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS passwords(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    website TEXT NOT NULL,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL
+)
+""")
+
 conn.commit()
 conn.close()
 

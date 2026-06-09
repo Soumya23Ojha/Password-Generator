@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request
 import sqlite3
+from flask import Flask, redirect, render_template, request, session, redirect
 
 app = Flask(__name__)
+app.secret_key = "your_secret_key"
 
 @app.route("/")
 def home():
@@ -60,11 +61,29 @@ def login():
         conn.close()
 
         if user:
-            return "Login Successful"
+            session["user_id"] = user[0]
+            session["username"] = user[1]
 
-        return "Invalid Email or Password"
+        return redirect("/vault")
+        return "Invalid Credentials"
 
     return render_template("login.html")
+
+@app.route("/vault")
+def vault():
+
+    if "user_id" not in session:
+        return redirect("/login")
+
+    return f"Welcome {session['username']} to your Password Vault"
+
+
+@app.route("/logout")
+def logout():
+
+    session.clear()
+
+    return redirect("/login")
 
 if __name__ == "__main__":
     app.run(debug=True)
