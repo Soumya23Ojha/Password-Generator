@@ -69,14 +69,54 @@ def login():
 
     return render_template("login.html")
 
-@app.route("/vault")
+@app.route("/vault", methods=["GET", "POST"])
 def vault():
 
     if "user_id" not in session:
         return redirect("/login")
 
-    return f"Welcome {session['username']} to your Password Vault"
+    conn = sqlite3.connect("users.db")
+    cursor = conn.cursor()
 
+    if request.method == "POST":
+
+        website = request.form["website"]
+        username = request.form["vault_username"]
+        password = request.form["vault_password"]
+
+        cursor.execute(
+            """
+            INSERT INTO passwords
+            (user_id, website, username, password)
+            VALUES (?, ?, ?, ?)
+            """,
+            (
+                session["user_id"],
+                website,
+                username,
+                password
+            )
+        )
+
+        conn.commit()
+
+    cursor.execute(
+        """
+        SELECT * FROM passwords
+        WHERE user_id = ?
+        """,
+        (session["user_id"],)
+    )
+
+    passwords = cursor.fetchall()
+
+    conn.close()
+
+    return render_template(
+        "vault.html",
+        username=session["username"],
+        passwords=passwords
+    )
 
 @app.route("/logout")
 def logout():
